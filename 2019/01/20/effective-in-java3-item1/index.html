@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>代理，网关，隧道 | wangqd的博客</title>
+  <title>item1:Consider static factory methods instead of constructors | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、代理代理是一种有转发功能的应用程序，他扮演了位于服务器和客户端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时也接收从那台服务器发送的响应并转发给客户端。 使用代理服务器的理由：1、利用缓存技术减少网络带宽的流量2、组织内部针对特定网站的访问控制，以获取访问日志为主要目的">
-<meta name="keywords" content="http">
+  <meta name="description" content="1、Advantages 静态工厂方法不像构造器，他们有名字   程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象  静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象  类的返回对象可以根据调用函数的输入参数而不同 例如enumSet，当参数为64个或者更">
+<meta name="keywords" content="Effective in java 3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代理，网关，隧道">
-<meta property="og:url" content="http://yoursite.com/2018/05/27/http-relatedword/index.html">
+<meta property="og:title" content="item1:Consider static factory methods instead of constructors">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/effective-in-java3-item1/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="1、代理代理是一种有转发功能的应用程序，他扮演了位于服务器和客户端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时也接收从那台服务器发送的响应并转发给客户端。 使用代理服务器的理由：1、利用缓存技术减少网络带宽的流量2、组织内部针对特定网站的访问控制，以获取访问日志为主要目的">
-<meta property="og:updated_time" content="2018-05-27T15:00:13.000Z">
+<meta property="og:description" content="1、Advantages 静态工厂方法不像构造器，他们有名字   程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象  静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象  类的返回对象可以根据调用函数的输入参数而不同 例如enumSet，当参数为64个或者更">
+<meta property="og:updated_time" content="2019-01-20T10:10:24.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="代理，网关，隧道">
-<meta name="twitter:description" content="1、代理代理是一种有转发功能的应用程序，他扮演了位于服务器和客户端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时也接收从那台服务器发送的响应并转发给客户端。 使用代理服务器的理由：1、利用缓存技术减少网络带宽的流量2、组织内部针对特定网站的访问控制，以获取访问日志为主要目的">
+<meta name="twitter:title" content="item1:Consider static factory methods instead of constructors">
+<meta name="twitter:description" content="1、Advantages 静态工厂方法不像构造器，他们有名字   程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象  静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象  类的返回对象可以根据调用函数的输入参数而不同 例如enumSet，当参数为64个或者更">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -136,20 +136,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-http-relatedword" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-effective-in-java3-item1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      代理，网关，隧道
+      item1:Consider static factory methods instead of constructors
     </h1>
   
 
         
-        <a href="/2018/05/27/http-relatedword/" class="archive-article-date">
-	<time datetime="2018-05-27T14:57:39.000Z" itemprop="datePublished">2018-05-27</time>
+        <a href="/2019/01/20/effective-in-java3-item1/" class="archive-article-date">
+	<time datetime="2019-01-20T10:00:00.000Z" itemprop="datePublished">2019-01-20</time>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
@@ -159,15 +159,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、代理"><a href="#1、代理" class="headerlink" title="1、代理"></a>1、代理</h3><p>代理是一种有转发功能的应用程序，他扮演了位于服务器和客户端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时也接收从那台服务器发送的响应并转发给客户端。</p>
-<p>使用代理服务器的理由：<br>1、利用缓存技术减少网络带宽的流量<br>2、组织内部针对特定网站的访问控制，以获取访问日志为主要目的</p>
+        <h4 id="1、Advantages"><a href="#1、Advantages" class="headerlink" title="1、Advantages"></a>1、Advantages</h4><ul>
+<li><p>静态工厂方法不像构造器，他们有名字 </p>
+<ul>
+<li>程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。</li>
+</ul>
+</li>
+<li><p>不会像构造方法一样，每次执行都创建一个新对象</p>
+</li>
+<li><p>静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象</p>
+</li>
+<li>类的返回对象可以根据调用函数的输入参数而不同<ul>
+<li>例如<code>enumSet</code>，当参数为64个或者更少的时候，调用静态方法返回<code>RegularEnumSet</code>实例，当参数为65或者更多的时候，调用静态方法返回<code>JumboEnumSet</code> 实例</li>
+</ul>
+</li>
+<li>类的返回对象可以不存在当类的方法被重写。</li>
+</ul>
 <a id="more"></a>
-<p>代理有多种使用方法，按两种基准分类。一种是是否使用缓存，另一种是是否会修改报文</p>
-<p>缓存代理<br>代理转发响应时，缓存代理会预先将资源的副本（缓存）保存在代理服务器上。<br>当代理再次接收带对相同资源的请求时，就可以不从源服务器那里获取资源，而是将之前缓存的资源作为响应返回。<br>透明代理<br>转发请求或响应时，不对报文做任何加工的代理类型被称为透明代理。反之，对报文内容进行加工的代理被称为非透明代理。</p>
-<h3 id="2、网关"><a href="#2、网关" class="headerlink" title="2、网关"></a>2、网关</h3><p>网关是转发其他服务器通信数据的服务器，接收从客户端发送来的请求时，他就像自己拥有资源的原服务器一样对请求进行处理。有事客户端可能都不会察觉，自己通信目标是一个网关。</p>
-<p>网关的工作机制和代理十分相似。二网关能使通信线路上的服务器提供非http协议服务。<br>利用网关能提高通信的安全性，因为可以再客户端与网关之间的通信线路上加密以确保连接的安全。比如网关可以连接数据库，使用sql语句查询数据。另外，在web购物网站上进行行用卡结算时，网关可以和信用卡结算系统联动。</p>
-<h3 id="3、隧道"><a href="#3、隧道" class="headerlink" title="3、隧道"></a>3、隧道</h3><p>隧道是在相隔甚远的客户端和服务器两者之间进行中转，并保持双方通信连接的应用程序。</p>
-<p>隧道可按要求建立起一条与其他服务器的通信线路，届时使用ssl等加密手段进行通信。隧道的目的是确保客户端与服务端进行安全的通信。</p>
+<h4 id="2、Disadvantages"><a href="#2、Disadvantages" class="headerlink" title="2、Disadvantages"></a>2、Disadvantages</h4><ul>
+<li>仅提供静态工厂方法的主要限制是没有公共或受保护构造函数的类不能被子类化。</li>
+<li>静态工厂方法很难被程序员找到。<ul>
+<li>文中提供了部分参考方法名称。如：<code>from</code>,<code>of</code>,<code>valueOf</code>,<code>instance of</code> ,<code>getInstance</code>,<code>create</code> , <code>newInstance</code>,<code>getType</code>,<code>newType</code>,<code>type</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="3、Summary"><a href="#3、Summary" class="headerlink" title="3、Summary"></a>3、Summary</h4><ul>
+<li>通常，静态工厂方法和公共构造方法都有他们的用途，了解他们之间的优点是值得的，通常静态方法是优选的，在没有首先考虑静态工厂的情况下，应避免习惯性思维提供公共构造方法。</li>
+</ul>
 
       
 
@@ -181,7 +199,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
         		</li>
       		
 		</ul>
@@ -237,7 +255,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/27/http-relatedword/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/20/effective-in-java3-item1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -251,18 +269,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/09/jvm_02/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          类的加载
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/27/http-statuscode/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">http 状态码</div>
+    <a href="/2019/01/13/spring-boot-config/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring boot 配置文件</div>
       <i class="icon-circle-right"></i>
     </a>
   
