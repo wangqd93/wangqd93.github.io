@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>item1:Consider static factory methods instead of constructors | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、Advantages 静态工厂方法不像构造器，他们有名字   程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象  静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象  类的返回对象可以根据调用函数的输入参数而不同 例如enumSet，当参数为64个或者更">
+  <meta name="description" content="1、Advantages 静态工厂方法不像构造器，他们有名字  程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象 静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象 作为输⼊入参数的函数，返回对象所属的类会随着调⽤用的不同⽽而不同。  例如enumSet，当">
 <meta name="keywords" content="Effective in java 3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="item1:Consider static factory methods instead of constructors">
 <meta property="og:url" content="http://yoursite.com/2019/01/20/effective-in-java3-item1/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="1、Advantages 静态工厂方法不像构造器，他们有名字   程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象  静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象  类的返回对象可以根据调用函数的输入参数而不同 例如enumSet，当参数为64个或者更">
-<meta property="og:updated_time" content="2019-01-20T10:10:24.114Z">
+<meta property="og:description" content="1、Advantages 静态工厂方法不像构造器，他们有名字  程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象 静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象 作为输⼊入参数的函数，返回对象所属的类会随着调⽤用的不同⽽而不同。  例如enumSet，当">
+<meta property="og:updated_time" content="2019-01-23T12:22:14.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="item1:Consider static factory methods instead of constructors">
-<meta name="twitter:description" content="1、Advantages 静态工厂方法不像构造器，他们有名字   程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象  静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象  类的返回对象可以根据调用函数的输入参数而不同 例如enumSet，当参数为64个或者更">
+<meta name="twitter:description" content="1、Advantages 静态工厂方法不像构造器，他们有名字  程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。   不会像构造方法一样，每次执行都创建一个新对象 静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象 作为输⼊入参数的函数，返回对象所属的类会随着调⽤用的不同⽽而不同。  例如enumSet，当">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -160,31 +160,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="1、Advantages"><a href="#1、Advantages" class="headerlink" title="1、Advantages"></a>1、Advantages</h4><ul>
-<li><p>静态工厂方法不像构造器，他们有名字 </p>
-<ul>
+<li>静态工厂方法不像构造器，他们有名字 <ul>
 <li>程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。</li>
 </ul>
 </li>
-<li><p>不会像构造方法一样，每次执行都创建一个新对象</p>
-</li>
-<li><p>静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象</p>
-</li>
-<li>类的返回对象可以根据调用函数的输入参数而不同<ul>
+<li>不会像构造方法一样，每次执行都创建一个新对象</li>
+<li>静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象</li>
+<li>作为输⼊入参数的函数，返回对象所属的类会随着调⽤用的不同⽽而不同。</li>
+<li><ul>
 <li>例如<code>enumSet</code>，当参数为64个或者更少的时候，调用静态方法返回<code>RegularEnumSet</code>实例，当参数为65或者更多的时候，调用静态方法返回<code>JumboEnumSet</code> 实例</li>
 </ul>
 </li>
-<li>类的返回对象可以不存在当类的方法被重写。</li>
+<li>在使⽤包含了了⽅法的类时，返回对象所属的类不必事先存在。</li>
 </ul>
 <a id="more"></a>
 <h4 id="2、Disadvantages"><a href="#2、Disadvantages" class="headerlink" title="2、Disadvantages"></a>2、Disadvantages</h4><ul>
-<li>仅提供静态工厂方法的主要限制是没有公共或受保护构造函数的类不能被子类化。</li>
+<li>仅提供静态工厂方法的主要限制是没有公共或受保护构造函数的类是不能被子类化。</li>
 <li>静态工厂方法很难被程序员找到。<ul>
 <li>文中提供了部分参考方法名称。如：<code>from</code>,<code>of</code>,<code>valueOf</code>,<code>instance of</code> ,<code>getInstance</code>,<code>create</code> , <code>newInstance</code>,<code>getType</code>,<code>newType</code>,<code>type</code></li>
 </ul>
 </li>
 </ul>
 <h4 id="3、Summary"><a href="#3、Summary" class="headerlink" title="3、Summary"></a>3、Summary</h4><ul>
-<li>通常，静态工厂方法和公共构造方法都有他们的用途，了解他们之间的优点是值得的，通常静态方法是优选的，在没有首先考虑静态工厂的情况下，应避免习惯性思维提供公共构造方法。</li>
+<li>通常，静态工厂方法和公共构造方法都有他们的用途，了解他们之间的优点，通常静态方法是优选的，在没有首先考虑静态工厂的情况下，应避免习惯性思维提供公共构造方法。</li>
 </ul>
 
       

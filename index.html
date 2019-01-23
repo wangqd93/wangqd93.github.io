@@ -160,7 +160,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1、Disadvantages"><a href="#1、Disadvantages" class="headerlink" title="1、Disadvantages"></a>1、Disadvantages</h4><ul>
+        <h4 id="1、传统方式"><a href="#1、传统方式" class="headerlink" title="1、传统方式"></a>1、传统方式</h4><ul>
 <li>静态工厂和构造方法都有一个限制：他们不能很好的适配大量可选参数。</li>
 <li>程序员一般用重叠构造器方式解决，但是并不好</li>
 </ul>
@@ -331,20 +331,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="1、Advantages"><a href="#1、Advantages" class="headerlink" title="1、Advantages"></a>1、Advantages</h4><ul>
-<li><p>静态工厂方法不像构造器，他们有名字 </p>
-<ul>
+<li>静态工厂方法不像构造器，他们有名字 <ul>
 <li>程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。</li>
 </ul>
 </li>
-<li><p>不会像构造方法一样，每次执行都创建一个新对象</p>
-</li>
-<li><p>静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象</p>
-</li>
-<li>类的返回对象可以根据调用函数的输入参数而不同<ul>
+<li>不会像构造方法一样，每次执行都创建一个新对象</li>
+<li>静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象</li>
+<li>作为输⼊入参数的函数，返回对象所属的类会随着调⽤用的不同⽽而不同。</li>
+<li><ul>
 <li>例如<code>enumSet</code>，当参数为64个或者更少的时候，调用静态方法返回<code>RegularEnumSet</code>实例，当参数为65或者更多的时候，调用静态方法返回<code>JumboEnumSet</code> 实例</li>
 </ul>
 </li>
-<li>类的返回对象可以不存在当类的方法被重写。</li>
+<li>在使⽤包含了了⽅法的类时，返回对象所属的类不必事先存在。</li>
 </ul>
         
       
