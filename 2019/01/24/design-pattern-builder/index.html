@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: jvm | wangqd的博客</title>
+  <title>builder pattern | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="沉默无言，戒备心极强。">
-<meta name="keywords" content="后端,编程,代码,开源,Developer,Programmer,Coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangqd的博客">
-<meta property="og:url" content="http://yoursite.com/tags/jvm/index.html">
+  <meta name="description" content="1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。 在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态">
+<meta name="keywords" content="design pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="builder pattern">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/design-pattern-builder/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="沉默无言，戒备心极强。">
+<meta property="og:description" content="1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。 在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态">
+<meta property="og:updated_time" content="2019-01-24T13:02:38.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangqd的博客">
-<meta name="twitter:description" content="沉默无言，戒备心极强。">
+<meta name="twitter:title" content="builder pattern">
+<meta name="twitter:description" content="1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。 在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -135,153 +136,171 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-design-pattern-builder" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      builder pattern
+    </h1>
+  
+
+        
+        <a href="/2019/01/24/design-pattern-builder/" class="archive-article-date">
+	<time datetime="2019-01-24T12:30:00.000Z" itemprop="datePublished">2019-01-24</time>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h4 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h4><p>Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。</p>
+<h4 id="2、什么情况下使用"><a href="#2、什么情况下使用" class="headerlink" title="2、什么情况下使用"></a>2、什么情况下使用</h4><p>我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。</p>
+<p>在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态。现在，让我们假设，我们的User对象具有以下5个属性，即firstName，lastName，age，phone和address。在通常的实践中，如果要创建不可变的User类，则必须将所有五个信息作为参数传递给构造函数。它看起来像这样：</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">User</span> <span class="params">(String firstName, String lastName, <span class="keyword">int</span> age, String phone, String address)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">    <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.phone = phone;</span><br><span class="line">    <span class="keyword">this</span>.address = address;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在firstName和lastName是必须的，其他三个属性是可选的，那么问题是，我们必须创建很多构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">User</span> <span class="params">(String firstName, String lastName, <span class="keyword">int</span> age, String phone)</span></span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">User</span> <span class="params">(String firstName, String lastName, String phone, String address)</span></span>&#123; ...  &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">User</span> <span class="params">(String firstName, String lastName, <span class="keyword">int</span> age)</span></span>&#123; ...   &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">User</span> <span class="params">(String firstName, String lastName)</span></span>&#123; ...    &#125;</span><br></pre></td></tr></table></figure>
+<p>我们想上面这样写，现在我们需要添加第6个属性，我们可能需要创建更多的构造器，或者我们将对象变为可变并添加set方法，选择这种方法你将失去对象不可变。</p>
+<p>构建模式可以帮助我们创建不可变的对象同时自定义添加属性。</p>
+<h4 id="3、构建模式的实现"><a href="#3、构建模式的实现" class="headerlink" title="3、构建模式的实现"></a>3、构建模式的实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//All final attributes</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String firstName; <span class="comment">// required</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String lastName; <span class="comment">// required</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> age; <span class="comment">// optional</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String phone; <span class="comment">// optional</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String address; <span class="comment">// optional</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">User</span><span class="params">(UserBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.firstName = builder.firstName;</span><br><span class="line">        <span class="keyword">this</span>.lastName = builder.lastName;</span><br><span class="line">        <span class="keyword">this</span>.age = builder.age;</span><br><span class="line">        <span class="keyword">this</span>.phone = builder.phone;</span><br><span class="line">        <span class="keyword">this</span>.address = builder.address;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//All getter, and NO setter to provde immutability</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> firstName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> lastName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> phone;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User: "</span>+<span class="keyword">this</span>.firstName+<span class="string">", "</span>+<span class="keyword">this</span>.lastName+<span class="string">", "</span>+<span class="keyword">this</span>.age+<span class="string">", "</span>+<span class="keyword">this</span>.phone+<span class="string">", "</span>+<span class="keyword">this</span>.address;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">UserBuilder</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String firstName;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String lastName;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">        <span class="keyword">private</span> String phone;</span><br><span class="line">        <span class="keyword">private</span> String address;</span><br><span class="line"> </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">UserBuilder</span><span class="params">(String firstName, String lastName)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">            <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> UserBuilder <span class="title">age</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> UserBuilder <span class="title">phone</span><span class="params">(String phone)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.phone = phone;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> UserBuilder <span class="title">address</span><span class="params">(String address)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.address = address;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//Return the finally consrcuted User object</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> User <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            User user =  <span class="keyword">new</span> User(<span class="keyword">this</span>);</span><br><span class="line">            validateUserObject(user);</span><br><span class="line">            <span class="keyword">return</span> user;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">validateUserObject</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//Do some basic validations to check</span></span><br><span class="line">            <span class="comment">//if user object does not break any assumption of system</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    User user1 = <span class="keyword">new</span> User.UserBuilder(<span class="string">"Lokesh"</span>, <span class="string">"Gupta"</span>)</span><br><span class="line">    .age(<span class="number">30</span>)</span><br><span class="line">    .phone(<span class="string">"1234567"</span>)</span><br><span class="line">    .address(<span class="string">"Fake address 1234"</span>)</span><br><span class="line">    .build();</span><br><span class="line"> </span><br><span class="line">    System.out.println(user1);</span><br><span class="line"> </span><br><span class="line">    User user2 = <span class="keyword">new</span> User.UserBuilder(<span class="string">"Jack"</span>, <span class="string">"Reacher"</span>)</span><br><span class="line">    .age(<span class="number">40</span>)</span><br><span class="line">    .phone(<span class="string">"5655"</span>)</span><br><span class="line">    <span class="comment">//no address</span></span><br><span class="line">    .build();</span><br><span class="line"> </span><br><span class="line">    System.out.println(user2);</span><br><span class="line"> </span><br><span class="line">    User user3 = <span class="keyword">new</span> User.UserBuilder(<span class="string">"Super"</span>, <span class="string">"Man"</span>)</span><br><span class="line">    <span class="comment">//No age</span></span><br><span class="line">    <span class="comment">//No phone</span></span><br><span class="line">    <span class="comment">//no address</span></span><br><span class="line">    .build();</span><br><span class="line"> </span><br><span class="line">    System.out.println(user3);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">Output:</span><br><span class="line"> </span><br><span class="line">User: Lokesh, Gupta, <span class="number">30</span>, <span class="number">1234567</span>, Fake address <span class="number">1234</span></span><br><span class="line">User: Jack, Reacher, <span class="number">40</span>, <span class="number">5655</span>, <span class="keyword">null</span></span><br><span class="line">User: Super, Man, <span class="number">0</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<h4 id="4、jdk中的实现"><a href="#4、jdk中的实现" class="headerlink" title="4、jdk中的实现"></a>4、jdk中的实现</h4><p>  java.lang.Appendable是构建模式实现的比较好的例子。</p>
+<p>  java.lang.StringBuilder#append() [线程不同步]</p>
+<p>  Java.lang.StringBuffer#append() [线程同步的]</p>
+<p>  <a href="https://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html#put%28java.nio.ByteBuffer%29" target="_blank" rel="noopener">java.nio.ByteBuffer#put()</a> (also on CharBuffer, ShortBuffer, IntBuffer, LongBuffer, FloatBuffer and DoubleBuffer)</p>
+<h4 id="5、构建模式的好处"><a href="#5、构建模式的好处" class="headerlink" title="5、构建模式的好处"></a>5、构建模式的好处</h4><p>  毫无疑问，在构建器模式中，代码行的数量至少增加了一倍，但是在设计灵活性和更易读的代码方面，这些努力得到了回报。减少了构造函数的参数，并以高度可读的方法调用提供。</p>
+<p>  Builder模式还有助于最小化构造函数中的参数数量，因此无需将可选参数的null传递给构造函数。</p>
+<p>  另一个优点是Object始终以完整状态实例化，而不是处于不完整状态。</p>
+<p>  最后，我可以在对象构建过程中构建不可变对象，而不需要太复杂的逻辑。</p>
+<h4 id="6、构建模式的缺点"><a href="#6、构建模式的缺点" class="headerlink" title="6、构建模式的缺点"></a>6、构建模式的缺点</h4><p>  虽然Builder模式减少了一些代码行，但不需要setter方法，但是通过引入Builder对象仍然可以使总行数增加一倍。此外，尽管客户端代码更具可读性，但客户端代码也更加冗长。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/09/jvm_03/" class="archive-article-date">
-	<time datetime="2018-06-09T07:55:15.000Z" itemprop="datePublished">2018-06-09</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/09/jvm_03/">类加载器分类和双亲委托机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">classloader</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">design pattern</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/24/design-pattern-builder/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/09/jvm_02/" class="archive-article-date">
-	<time datetime="2018-06-09T07:38:28.000Z" itemprop="datePublished">2018-06-09</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/23/effective-in-java3-item2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Item 2:Consider a builder when faced with many constructor parameters</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/09/jvm_02/">类的加载</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">classloader</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/10/jvm_01/" class="archive-article-date">
-	<time datetime="2018-04-10T02:49:34.000Z" itemprop="datePublished">2018-04-10</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/10/jvm_01/">类加载机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -304,9 +323,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

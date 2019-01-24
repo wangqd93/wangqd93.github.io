@@ -137,6 +137,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-design-pattern-builder" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/24/design-pattern-builder/">builder pattern</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/24/design-pattern-builder/" class="archive-article-date">
+	<time datetime="2019-01-24T12:30:00.000Z" itemprop="datePublished">2019-01-24</time>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h4 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h4><p>Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。</p>
+<h4 id="2、什么情况下使用"><a href="#2、什么情况下使用" class="headerlink" title="2、什么情况下使用"></a>2、什么情况下使用</h4><p>我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。</p>
+<p>在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态。现在，让我们假设，我们的User对象具有以下5个属性，即firstName，lastName，age，phone和address。在通常的实践中，如果要创建不可变的User类，则必须将所有五个信息作为参数传递给构造函数。它看起来像这样：</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">design pattern</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/24/design-pattern-builder/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-effective-in-java3-item2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -745,88 +825,6 @@
 
 
   
-    <article id="post-http-statuscode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/27/http-statuscode/">http 状态码</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/27/http-statuscode/" class="archive-article-date">
-	<time datetime="2018-05-27T14:50:58.000Z" itemprop="datePublished">2018-05-27</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>200 OK 表示从客户端发来的请求在服务端被正常处理了</li>
-<li>204 NO CONTENT 该状态码代表服务器已成功处理，但返回的响应报文中不含实体的主体部分。一般是只需要从客户端往服务端发送信息，而客户端不需要发送新信息内容的情况下使用。</li>
-<li>206 Partial Content 改状态吗表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。</li>
-</ul>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/27/http-statuscode/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -941,6 +939,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">design pattern</a>
               </li>
             
             <div class="clearfix"></div>
