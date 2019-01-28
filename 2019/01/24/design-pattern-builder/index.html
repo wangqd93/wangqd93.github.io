@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>builder pattern | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。 在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态">
+  <meta name="description" content="参考文章：https://howtodoinjava.com/design-patterns/creational/builder-pattern-in-java/  1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经">
 <meta name="keywords" content="design pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="builder pattern">
 <meta property="og:url" content="http://yoursite.com/2019/01/24/design-pattern-builder/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。 在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态">
-<meta property="og:updated_time" content="2019-01-24T13:02:38.622Z">
+<meta property="og:description" content="参考文章：https://howtodoinjava.com/design-patterns/creational/builder-pattern-in-java/  1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经">
+<meta property="og:updated_time" content="2019-01-28T03:46:32.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="builder pattern">
-<meta name="twitter:description" content="1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。 在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态">
+<meta name="twitter:description" content="参考文章：https://howtodoinjava.com/design-patterns/creational/builder-pattern-in-java/  1、定义Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。 2、什么情况下使用我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -159,7 +159,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
+        <p>参考文章：<a href="https://howtodoinjava.com/design-patterns/creational/builder-pattern-in-java/" target="_blank" rel="noopener">https://howtodoinjava.com/design-patterns/creational/builder-pattern-in-java/</a></p>
+<ul>
 <li><h4 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h4><p>Builder模式旨在“将复杂对象的构造与其表示分开，以便相同的构造过程可以创建不同的对象“。</p>
 <h4 id="2、什么情况下使用"><a href="#2、什么情况下使用" class="headerlink" title="2、什么情况下使用"></a>2、什么情况下使用</h4><p>我们已经知道应用程序中不可变性和不可变实例的好处。如果您对此有任何疑问，在java中String类。正如我已经说过的，构建器模式帮助我们创建具有大量状态属性的不可变类。</p>
 <p>在任何用户管理模块中，主要实体是User，比方说。理想情况下，一旦用户对象完全创建，您就不希望改变它的状态。现在，让我们假设，我们的User对象具有以下5个属性，即firstName，lastName，age，phone和address。在通常的实践中，如果要创建不可变的User类，则必须将所有五个信息作为参数传递给构造函数。它看起来像这样：</p>
@@ -264,6 +265,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/01/28/design-pattern-singleton/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          singleton pattern
+        
+      </div>
+    </a>
   
   
     <a href="/2019/01/23/effective-in-java3-item2/" id="article-nav-older" class="article-nav-link-wrap">
