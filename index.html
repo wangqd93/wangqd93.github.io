@@ -137,6 +137,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-effective-in-java3-item3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/29/effective-in-java3-item3/">Item 3:Enforce the singleton property with a private constructor or an enum type</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/29/effective-in-java3-item3/" class="archive-article-date">
+	<time datetime="2019-01-29T07:10:00.000Z" itemprop="datePublished">2019-01-29</time>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。 </p>
+<p>有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final </p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/29/effective-in-java3-item3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-design-pattern-singleton" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -702,102 +780,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/09/jvm_03/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jvm_02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/09/jvm_02/">类的加载</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/09/jvm_02/" class="archive-article-date">
-	<time datetime="2018-06-09T07:38:28.000Z" itemprop="datePublished">2018-06-09</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、类的加载过程"><a href="#1、类的加载过程" class="headerlink" title="1、类的加载过程"></a>1、类的加载过程</h3><p>在java代码中，类的加载，连接与初始化过程都是在程序运行期间完成的。</p>
-<p>类的加载分为：加载，连接，初始化，使用，卸载。</p>
-<ul>
-<li>加载：查找并加载类的二进制数据</li>
-<li><p>连接：</p>
-<ul>
-<li>验证：确保被加载类的正确性</li>
-<li>准备：为类的静态变量分配内存，并将其初始化为默认值。</li>
-<li>解析：把类中的符号引用转换为直接引用</li>
-</ul>
-</li>
-<li><p>初始化：为类的静态变量赋予正确的初始值</p>
-</li>
-<li>使用：</li>
-<li>卸载：</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">classloader</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/09/jvm_02/">展开全文 >></a>
         </p>
       
 
