@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | wangqd的博客</title>
+  <title>factory pattern | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="沉默无言，戒备心极强。">
-<meta name="keywords" content="后端,编程,代码,开源,Developer,Programmer,Coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangqd的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="参考文章：https://howtodoinjava.com/design-patterns/creational/implementing-factory-design-pattern-in-java/  1、什么情况下使用工厂模式引入了类之间的低耦合类，是设计程序架构的时候最重要的原则。低耦合说的是应用程序中抽象实体代替具体类。它不仅是我们的架构更灵活，同时以更加不那么脆弱。">
+<meta name="keywords" content="design pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="factory pattern">
+<meta property="og:url" content="http://yoursite.com/2019/01/30/design-pattern-factory/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="沉默无言，戒备心极强。">
+<meta property="og:description" content="参考文章：https://howtodoinjava.com/design-patterns/creational/implementing-factory-design-pattern-in-java/  1、什么情况下使用工厂模式引入了类之间的低耦合类，是设计程序架构的时候最重要的原则。低耦合说的是应用程序中抽象实体代替具体类。它不仅是我们的架构更灵活，同时以更加不那么脆弱。">
+<meta property="og:image" content="https://howtodoinjava.files.wordpress.com/2012/10/class_diagram_of_factory_pattern_in_java1.png">
+<meta property="og:updated_time" content="2019-01-30T11:09:08.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangqd的博客">
-<meta name="twitter:description" content="沉默无言，戒备心极强。">
+<meta name="twitter:title" content="factory pattern">
+<meta name="twitter:description" content="参考文章：https://howtodoinjava.com/design-patterns/creational/implementing-factory-design-pattern-in-java/  1、什么情况下使用工厂模式引入了类之间的低耦合类，是设计程序架构的时候最重要的原则。低耦合说的是应用程序中抽象实体代替具体类。它不仅是我们的架构更灵活，同时以更加不那么脆弱。">
+<meta name="twitter:image" content="https://howtodoinjava.files.wordpress.com/2012/10/class_diagram_of_factory_pattern_in_java1.png">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -135,39 +138,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-design-pattern-factory" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      factory pattern
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/30/design-pattern-factory/" class="archive-article-date">
+
+        
+        <a href="/2019/01/30/design-pattern-factory/" class="archive-article-date">
 	<time datetime="2019-01-30T08:00:00.000Z" itemprop="datePublished">2019-01-30</time>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/30/design-pattern-factory/">factory pattern</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考文章：<a href="https://howtodoinjava.com/design-patterns/creational/implementing-factory-design-pattern-in-java/" target="_blank" rel="noopener">https://howtodoinjava.com/design-patterns/creational/implementing-factory-design-pattern-in-java/</a> </p>
+<h4 id="1、什么情况下使用"><a href="#1、什么情况下使用" class="headerlink" title="1、什么情况下使用"></a>1、什么情况下使用</h4><p>工厂模式引入了类之间的低耦合类，是设计程序架构的时候最重要的原则。低耦合说的是应用程序中抽象实体代替具体类。它不仅是我们的架构更灵活，同时以更加不那么脆弱。 </p>
+<a id="more"></a>
+<p>一张图胜过千言万语。让我们来看下怎样实现一个工厂。 </p>
+<p><img src="https://howtodoinjava.files.wordpress.com/2012/10/class_diagram_of_factory_pattern_in_java1.png" alt="avatar"></p>
+<p>上面这张类图描述了一个可以构建三种类型例如小的，轿车和豪华的车辆工厂的方案。构建一辆车需要很多步骤和附件最后组装。这些步骤可以在程序中作为方法，然后当创建特定的车辆调用。 </p>
+<p>我们在应用程序中创建车辆类型的实例的时候，不幸的是，我们需要暴露车辆组装的逻辑给外面，这是不好的。因为代码没有集中，所以我们改变车辆的程序是有阻碍的，改变似乎不可行。 </p>
+<h4 id="2、工厂模式例子"><a href="#2、工厂模式例子" class="headerlink" title="2、工厂模式例子"></a>2、工厂模式例子</h4><p>2.1 对象类型 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> designPatterns.creational.factory; </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> CarType &#123; </span><br><span class="line"></span><br><span class="line">SMALL, SEDAN, LUXURY </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.2 对象的实现 </p>
+<p>Car 是所有车辆实例的父类，包含了所有车辆类型的公共逻辑。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(CarType model)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.model = model;</span><br><span class="line">        arrangeParts();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">arrangeParts</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Do one time processing here</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Do subclass level processing in this method</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">construct</span><span class="params">()</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> CarType model = <span class="keyword">null</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> CarType <span class="title">getModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> model;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setModel</span><span class="params">(CarType model)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.model = model;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>LuxuryCar</code> 是车辆类型<code>LUXURY</code> 的具体实现。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LuxuryCar</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    LuxuryCar() &#123;</span><br><span class="line">        <span class="keyword">super</span>(CarType.LUXURY);</span><br><span class="line">        construct();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Building luxury car"</span>);</span><br><span class="line">        <span class="comment">// add accessories</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>SmallCar</code> 是车辆类型<code>SMALL</code>的具体实现。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmallCar</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    SmallCar() &#123;</span><br><span class="line">        <span class="keyword">super</span>(CarType.SMALL);</span><br><span class="line">        construct();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Building small car"</span>);</span><br><span class="line">        <span class="comment">// add accessories</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>SedanCar</code> 是车辆类型 <code>SEDAN</code>的具体实现 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SedanCar</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    SedanCar() &#123;</span><br><span class="line">        <span class="keyword">super</span>(CarType.SEDAN);</span><br><span class="line">        construct();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Building sedan car"</span>);</span><br><span class="line">        <span class="comment">// add accessories</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.3 工厂创建对象 </p>
+<p><code>CarFactory.java</code>是我们工厂模式的主要实现类。车辆实例只取决于它的类型。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Car <span class="title">buildCar</span><span class="params">(CarType model)</span> </span>&#123;</span><br><span class="line">        Car car = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">switch</span> (model) &#123;</span><br><span class="line">        <span class="keyword">case</span> SMALL:</span><br><span class="line">            car = <span class="keyword">new</span> SmallCar();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> SEDAN:</span><br><span class="line">            car = <span class="keyword">new</span> SedanCar();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> LUXURY:</span><br><span class="line">            car = <span class="keyword">new</span> LuxuryCar();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="comment">// throw some exception</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> car;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.4 测试工厂模式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFactoryPattern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(CarFactory.buildCar(CarType.SMALL));</span><br><span class="line">        System.out.println(CarFactory.buildCar(CarType.SEDAN));</span><br><span class="line">        System.out.println(CarFactory.buildCar(CarType.LUXURY));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果输出 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Building small car</span><br><span class="line">designPatterns.creational.factory.SmallCar@7c230be4</span><br><span class="line">Building sedan car</span><br><span class="line">designPatterns.creational.factory.SedanCar@60e1e567</span><br><span class="line">Building luxury car</span><br><span class="line">designPatterns.creational.factory.LuxuryCar@e9bfee2</span><br></pre></td></tr></table></figure>
+<h4 id="3、工厂模式的好处"><a href="#3、工厂模式的好处" class="headerlink" title="3、工厂模式的好处"></a>3、工厂模式的好处</h4><ul>
+<li><p>创建对象可以反复使用，不用写多余的代码。 </p>
+</li>
+<li><p>创建一个对象需要信息或者资源，没有暴露包含的类 </p>
+</li>
+<li><p>必须集中生成对象的生命周期管理，以确保应用程序内的一致行为。 </p>
+</li>
+</ul>
+<h4 id="4、jdk中的使用"><a href="#4、jdk中的使用" class="headerlink" title="4、jdk中的使用"></a>4、jdk中的使用</h4><p>工厂模式适合大部分对象复杂步骤的执行 </p>
+<p>jdk中的工厂模式 </p>
+<ul>
+<li><p>java.sql.DriverManager#getConnection() </p>
+</li>
+<li><p>java.net.URL#openConnection() </p>
+</li>
+<li><p>java.lang.Class#newInstance() </p>
+</li>
+<li><p>java.lang.Class#forName() </p>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -179,310 +225,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/30/design-pattern-factory/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/29/effective-in-java3-item3/" class="archive-article-date">
-	<time datetime="2019-01-29T07:10:00.000Z" itemprop="datePublished">2019-01-29</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/29/effective-in-java3-item3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Item 3:Enforce the singleton property with a private constructor or an enum type</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/29/effective-in-java3-item3/">Item 3:Enforce the singleton property with a private constructor or an enum type</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/28/design-pattern-singleton/" class="archive-article-date">
-	<time datetime="2019-01-28T03:30:00.000Z" itemprop="datePublished">2019-01-28</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/28/design-pattern-singleton/">singleton pattern</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">design pattern</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/24/design-pattern-builder/" class="archive-article-date">
-	<time datetime="2019-01-24T12:30:00.000Z" itemprop="datePublished">2019-01-24</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/24/design-pattern-builder/">builder pattern</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">design pattern</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/23/effective-in-java3-item2/" class="archive-article-date">
-	<time datetime="2019-01-23T12:00:00.000Z" itemprop="datePublished">2019-01-23</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/23/effective-in-java3-item2/">Item 2:Consider a builder when faced with many constructor parameters</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/20/mq/" class="archive-article-date">
-	<time datetime="2019-01-20T13:10:00.000Z" itemprop="datePublished">2019-01-20</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/20/mq/">常见mq</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mq</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/20/effective-in-java3-item1/" class="archive-article-date">
-	<time datetime="2019-01-20T10:00:00.000Z" itemprop="datePublished">2019-01-20</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/20/effective-in-java3-item1/">item1:Consider static factory methods instead of constructors</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/13/spring-boot-config/" class="archive-article-date">
-	<time datetime="2019-01-13T09:30:00.000Z" itemprop="datePublished">2019-01-13</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/13/spring-boot-config/">spring boot 配置文件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring boot</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring cloud 微服务实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -505,8 +347,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
