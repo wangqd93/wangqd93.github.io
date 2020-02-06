@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>wangqd的博客</title>
+  <title>lambda 表达式 方法引用 | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: lambda 方法引用date: 2020-02-06 10:00:00 tags:  java8 in action java8  方法引用存在三类： 1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt） 2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length） 3、指向现有">
-<meta name="keywords" content="后端,编程,代码,开源,Developer,Programmer,Coder">
+  <meta name="description" content="方法引用存在三类： 1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt） 2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length） 3、指向现有对象的实例方法的方法引用(假设你有一个局部变量expensiveTransaction用于存放Transaction类型对象，他支持实例方法getV">
+<meta name="keywords" content="java8,java8 in action">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wangqd的博客">
+<meta property="og:title" content="lambda 表达式 方法引用">
 <meta property="og:url" content="http://yoursite.com/2020/02/06/java8_02/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="title: lambda 方法引用date: 2020-02-06 10:00:00 tags:  java8 in action java8  方法引用存在三类： 1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt） 2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length） 3、指向现有">
-<meta property="og:updated_time" content="2020-02-06T14:35:09.996Z">
+<meta property="og:description" content="方法引用存在三类： 1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt） 2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length） 3、指向现有对象的实例方法的方法引用(假设你有一个局部变量expensiveTransaction用于存放Transaction类型对象，他支持实例方法getV">
+<meta property="og:updated_time" content="2020-02-06T14:42:54.739Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangqd的博客">
-<meta name="twitter:description" content="title: lambda 方法引用date: 2020-02-06 10:00:00 tags:  java8 in action java8  方法引用存在三类： 1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt） 2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length） 3、指向现有">
+<meta name="twitter:title" content="lambda 表达式 方法引用">
+<meta name="twitter:description" content="方法引用存在三类： 1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt） 2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length） 3、指向现有对象的实例方法的方法引用(假设你有一个局部变量expensiveTransaction用于存放Transaction类型对象，他支持实例方法getV">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -139,15 +139,27 @@
             <article id="post-java8_02" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      lambda 表达式 方法引用
+    </h1>
+  
+
+        
+        <a href="/2020/02/06/java8_02/" class="archive-article-date">
+	<time datetime="2020-02-06T14:00:00.000Z" itemprop="datePublished">2020-02-06</time>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: lambda 方法引用<br>date: 2020-02-06 10:00:00</p>
-<p>tags:</p>
-<ul>
-<li>java8 in action</li>
-<li>java8</li>
-</ul>
-<p>方法引用存在三类：</p>
+        <p>方法引用存在三类：</p>
 <p>1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt）</p>
 <p>2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length）</p>
 <p>3、指向现有对象的实例方法的方法引用(假设你有一个局部变量expensiveTransaction用于存放Transaction类型对象，他支持实例方法getValue，那么你就可以些expensive-Transaction:;getValue。)</p>
@@ -165,6 +177,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8 in action</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -231,7 +258,7 @@
   
   
     <a href="/2020/02/06/java8_01/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">lambda 表达式 对应的class 是什么</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -378,6 +405,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">design pattern</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8 in action</a>
               </li>
             
             <div class="clearfix"></div>
