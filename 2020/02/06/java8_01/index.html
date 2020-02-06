@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Item 3:Enforce the singleton property with a private constructor or an enum type | wangqd的博客</title>
+  <title>wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。  有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final">
-<meta name="keywords" content="Effective in java 3">
+  <meta name="description" content="title: lambda 表达式 对应的classdate: 2020-02-06 22:00:00 tags:  java8 in action java8  lambda 表达式 对应的class 是什么结论：1、lambda 表达式对应的class对象是lambda 的代理2、lambda 表达式的superClass 是 Object3、lambda 表达式的classloader 是">
+<meta name="keywords" content="后端,编程,代码,开源,Developer,Programmer,Coder">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Item 3:Enforce the singleton property with a private constructor or an enum type">
-<meta property="og:url" content="http://yoursite.com/2019/01/29/effective-in-java3-item3/index.html">
+<meta property="og:title" content="wangqd的博客">
+<meta property="og:url" content="http://yoursite.com/2020/02/06/java8_01/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。  有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final">
-<meta property="og:updated_time" content="2019-01-29T07:11:00.790Z">
+<meta property="og:description" content="title: lambda 表达式 对应的classdate: 2020-02-06 22:00:00 tags:  java8 in action java8  lambda 表达式 对应的class 是什么结论：1、lambda 表达式对应的class对象是lambda 的代理2、lambda 表达式的superClass 是 Object3、lambda 表达式的classloader 是">
+<meta property="og:updated_time" content="2020-02-06T14:12:04.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Item 3:Enforce the singleton property with a private constructor or an enum type">
-<meta name="twitter:description" content="单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。  有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final">
+<meta name="twitter:title" content="wangqd的博客">
+<meta name="twitter:description" content="title: lambda 表达式 对应的classdate: 2020-02-06 22:00:00 tags:  java8 in action java8  lambda 表达式 对应的class 是什么结论：1、lambda 表达式对应的class对象是lambda 的代理2、lambda 表达式的superClass 是 Object3、lambda 表达式的classloader 是">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -136,45 +136,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-effective-in-java3-item3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java8_01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Item 3:Enforce the singleton property with a private constructor or an enum type
-    </h1>
-  
-
-        
-        <a href="/2019/01/29/effective-in-java3-item3/" class="archive-article-date">
-	<time datetime="2019-01-29T07:10:00.000Z" itemprop="datePublished">2019-01-29</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。 </p>
-<p>有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final </p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Singleton with public final field </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Elvis</span> </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Elvis INSTANCE = <span class="keyword">new</span> Elvis(); </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Elvis</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leaveTheBuilding</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>私有构造方法只被调用一次，用于初始化公共静态最终变量Elvis.INSTANCE。public或者protected构造方法缺失因此可以保证唯一性，Elvis实例话事，只有唯一一个Elvis实例会存在。客户端是无法修改的：通过设置AccessibleObject.setAccessible 方法，执行私有构造方法。如果你需要防御不利的攻击，修改构造器，如果它创建第二个实例的时候抛出异常。 </p>
-<p>第二种方法，公共成员变成静态工厂方法。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Singleton with static factory </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Elvis</span> </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Elvis INSTANCE = <span class="keyword">new</span> Elvis(); <span class="function"><span class="keyword">private</span> <span class="title">Elvis</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Elvis <span class="title">getInstance</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> INSTANCE; &#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leaveTheBuilding</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用Elvis.getInstance放回相同的对象引用，不会再创建其他的Elvis实例。 </p>
-<p>public 属性方法的主要优点是类的单例API清晰，public static属性是final，所以他总是包含相同的对象引用。第二个优点是简单。 </p>
-<p>静态工厂方法的一个优点是给定了一定的灵活性去改变获取单例的api。工厂方法返回唯一的单例，不过你可以修改这个方法，实例在每个线程单中是独立的。第二个优点是如果应用程序需要它，你可以写一个通用的单例工厂。使用静态工厂的最后优点是可以使用方法引用，例如Elvis::instance 。除非这些优点都是有意义的，否则公共属性方法更可取。 </p>
-<p>想让上述两种⽅式实现的单例例类能够序列化，仅仅在类的声明中添加 implements Serializable是不够的。为了确保单例，请将所有实例字段声明为transient，并 提供一个readResolve方法。否则，每次当序列化的实例例在反序列化时，一个新的实例就会被创建出来，对于我们这个示例来说，就会出现另一个Elvis。为了了防⽌止这种情况发⽣，请将如下的readResolve⽅方法添加到Elvis类中: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// readResolve method to preserve singleton property </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">readResolve</span><span class="params">()</span> </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="comment">// Return the one true Elvis and let the garbage collector </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// take care of the Elvis impersonator. </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> INSTANCE; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现单例的第三种⽅式是声明⼀一个单元素的枚举: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Enum singleton - the preferred approach </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Elvis &#123; </span><br><span class="line"></span><br><span class="line">INSTANCE; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leaveTheBuilding</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该⽅式类似于公有字段⽅式，不过更加简洁，而且天然提供了序列化机制，能够强有力地保证不会出现多次实例化的情况，即便在复杂的序列化与反射场景下亦如此。该⽅式看起来有些不那么⾃然，不过单元素枚举类型通常是实现单例的最佳⽅方式。注意，如果单例必须要继承一个父类而⾮非枚举的情况下是无法使用该⽅式的(不过可以声明一个实现了接口的枚举) </p>
-
+        <p>title: lambda 表达式 对应的class<br>date: 2020-02-06 22:00:00</p>
+<p>tags:</p>
+<ul>
+<li>java8 in action</li>
+<li>java8</li>
+</ul>
+<h3 id="lambda-表达式-对应的class-是什么"><a href="#lambda-表达式-对应的class-是什么" class="headerlink" title="lambda 表达式 对应的class 是什么"></a>lambda 表达式 对应的class 是什么</h3><p>结论：<br>1、lambda 表达式对应的class对象是lambda 的代理<br>2、lambda 表达式的superClass 是 Object<br>3、lambda 表达式的classloader 是 appClassLoader<br>4、lambda 表达式在用法上和匿名内部类很相似，但是对应的class不同<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package com.bycsmys.character3;</span><br><span class="line"></span><br><span class="line">import java.util.function.Consumer;</span><br><span class="line">import java.util.function.Function;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class LambdaDefine &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Consumer&lt;String&gt; consumer = System.out::println;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;consumer.getClass().getName():&quot; + consumer.getClass().getName()); //com.bycsmys.character3.LambdaDefine$$Lambda$14/0x0000000800066840</span><br><span class="line">        System.out.println(&quot;consumer.getClass().getSuperclass().getName():&quot; + consumer.getClass().getSuperclass().getName());//java.lang.Object</span><br><span class="line">        System.out.println(&quot;consumer.getClass().getClassLoader():&quot; + consumer.getClass().getClassLoader()); //jdk.internal.loader.ClassLoaders$AppClassLoader@512ddf17</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;------------------------&quot;);</span><br><span class="line"></span><br><span class="line">        Function&lt;String, Integer&gt; function = Integer::parseInt;</span><br><span class="line">        System.out.println(&quot;function.getClass().getName()：&quot; + function.getClass().getName()); //com.bycsmys.character3.LambdaDefine$$Lambda$15/0x0000000800066c40</span><br><span class="line">        System.out.println(&quot;function.getClass().getSuperclass().getName():&quot; + function.getClass().getSuperclass().getName()); //java.lang.Object</span><br><span class="line">        System.out.println(&quot;function.getClass().getClassLoader():&quot; + function.getClass().getClassLoader()); //jdk.internal.loader.ClassLoaders$AppClassLoader@512ddf17</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;-----------------------------&quot;);</span><br><span class="line"></span><br><span class="line">        Consumer&lt;String&gt; innerConsumer = new Consumer&lt;String&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void accept(String s) &#123;</span><br><span class="line">                System.out.println(s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        System.out.println(&quot;innerConsumer.getClass().getName():&quot; + innerConsumer.getClass().getName());//com.bycsmys.character3.LambdaDefine$1</span><br><span class="line">        System.out.println(&quot;nnerConsumer.getClass().getSuperclass().getName():&quot; + innerConsumer.getClass().getSuperclass().getName());//java.lang.Object</span><br><span class="line">        System.out.println(&quot;innerConsumer.getClass().getClassLoader():&quot; + innerConsumer.getClass().getClassLoader());//jdk.internal.loader.ClassLoaders$AppClassLoader@512ddf17</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -182,17 +156,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -243,7 +206,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/29/effective-in-java3-item3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/06/java8_01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -257,18 +220,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/01/30/design-pattern-factory/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/06/java8_02/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          factory pattern
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2019/01/28/design-pattern-singleton/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">singleton pattern</div>
+    <a href="/2019/01/30/design-pattern-factory/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">factory pattern</div>
       <i class="icon-circle-right"></i>
     </a>
   

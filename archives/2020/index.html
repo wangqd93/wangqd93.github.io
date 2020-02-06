@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Item 3:Enforce the singleton property with a private constructor or an enum type | wangqd的博客</title>
+  <title>Archives: 2020 | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。  有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final">
-<meta name="keywords" content="Effective in java 3">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Item 3:Enforce the singleton property with a private constructor or an enum type">
-<meta property="og:url" content="http://yoursite.com/2019/01/29/effective-in-java3-item3/index.html">
+  <meta name="description" content="沉默无言，戒备心极强。">
+<meta name="keywords" content="后端,编程,代码,开源,Developer,Programmer,Coder">
+<meta property="og:type" content="website">
+<meta property="og:title" content="wangqd的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。  有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final">
-<meta property="og:updated_time" content="2019-01-29T07:11:00.790Z">
+<meta property="og:description" content="沉默无言，戒备心极强。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Item 3:Enforce the singleton property with a private constructor or an enum type">
-<meta name="twitter:description" content="单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。  有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final">
+<meta name="twitter:title" content="wangqd的博客">
+<meta name="twitter:description" content="沉默无言，戒备心极强。">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -136,172 +135,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-effective-in-java3-item3" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Item 3:Enforce the singleton property with a private constructor or an enum type
-    </h1>
-  
-
-        
-        <a href="/2019/01/29/effective-in-java3-item3/" class="archive-article-date">
-	<time datetime="2019-01-29T07:10:00.000Z" itemprop="datePublished">2019-01-29</time>
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/06/java8_02/" class="archive-article-date">
+	<time datetime="2020-02-06T14:10:38.583Z" itemprop="datePublished">2020-02-06</time>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>单例只能被类实例化一次。单例例要么表示一个⽆状态的对象，要么表示一个本质上独⼀无二的系统组件。单例会使测试它的客户端很难，因为它不可能去模拟单例除非它实现了了作为其类型的接口。 </p>
-<p>有两种方式实现单例。两种方式都是基于私有构造方法和公共静态成员来提供基础实例。一种方式，成员为final </p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Singleton with public final field </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Elvis</span> </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Elvis INSTANCE = <span class="keyword">new</span> Elvis(); </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Elvis</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leaveTheBuilding</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>私有构造方法只被调用一次，用于初始化公共静态最终变量Elvis.INSTANCE。public或者protected构造方法缺失因此可以保证唯一性，Elvis实例话事，只有唯一一个Elvis实例会存在。客户端是无法修改的：通过设置AccessibleObject.setAccessible 方法，执行私有构造方法。如果你需要防御不利的攻击，修改构造器，如果它创建第二个实例的时候抛出异常。 </p>
-<p>第二种方法，公共成员变成静态工厂方法。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Singleton with static factory </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Elvis</span> </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Elvis INSTANCE = <span class="keyword">new</span> Elvis(); <span class="function"><span class="keyword">private</span> <span class="title">Elvis</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Elvis <span class="title">getInstance</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> INSTANCE; &#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leaveTheBuilding</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用Elvis.getInstance放回相同的对象引用，不会再创建其他的Elvis实例。 </p>
-<p>public 属性方法的主要优点是类的单例API清晰，public static属性是final，所以他总是包含相同的对象引用。第二个优点是简单。 </p>
-<p>静态工厂方法的一个优点是给定了一定的灵活性去改变获取单例的api。工厂方法返回唯一的单例，不过你可以修改这个方法，实例在每个线程单中是独立的。第二个优点是如果应用程序需要它，你可以写一个通用的单例工厂。使用静态工厂的最后优点是可以使用方法引用，例如Elvis::instance 。除非这些优点都是有意义的，否则公共属性方法更可取。 </p>
-<p>想让上述两种⽅式实现的单例例类能够序列化，仅仅在类的声明中添加 implements Serializable是不够的。为了确保单例，请将所有实例字段声明为transient，并 提供一个readResolve方法。否则，每次当序列化的实例例在反序列化时，一个新的实例就会被创建出来，对于我们这个示例来说，就会出现另一个Elvis。为了了防⽌止这种情况发⽣，请将如下的readResolve⽅方法添加到Elvis类中: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// readResolve method to preserve singleton property </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">readResolve</span><span class="params">()</span> </span>&#123; </span><br><span class="line"></span><br><span class="line"><span class="comment">// Return the one true Elvis and let the garbage collector </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// take care of the Elvis impersonator. </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> INSTANCE; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现单例的第三种⽅式是声明⼀一个单元素的枚举: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Enum singleton - the preferred approach </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Elvis &#123; </span><br><span class="line"></span><br><span class="line">INSTANCE; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leaveTheBuilding</span><span class="params">()</span> </span>&#123; ... &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该⽅式类似于公有字段⽅式，不过更加简洁，而且天然提供了序列化机制，能够强有力地保证不会出现多次实例化的情况，即便在复杂的序列化与反射场景下亦如此。该⽅式看起来有些不那么⾃然，不过单元素枚举类型通常是实现单例的最佳⽅方式。注意，如果单例必须要继承一个父类而⾮非枚举的情况下是无法使用该⽅式的(不过可以声明一个实现了接口的枚举) </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/29/effective-in-java3-item3/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/06/java8_01/" class="archive-article-date">
+	<time datetime="2020-02-06T14:10:38.583Z" itemprop="datePublished">2020-02-06</time>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2019/01/30/design-pattern-factory/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          factory pattern
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/01/28/design-pattern-singleton/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">singleton pattern</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-
-
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -324,8 +221,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

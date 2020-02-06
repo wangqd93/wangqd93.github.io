@@ -137,6 +137,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java8_02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: lambda 方法引用<br>date: 2020-02-06 10:00:00</p>
+<p>tags:</p>
+<ul>
+<li>java8 in action</li>
+<li>java8</li>
+</ul>
+<p>方法引用存在三类：</p>
+<p>1、指向静态方法的方法引用（例如Integer的parseInt方法，写作Integer::parseInt）</p>
+<p>2、指向任意类型实例方法的方法引用（例如String的length方法，写作String::length）</p>
+<p>3、指向现有对象的实例方法的方法引用(假设你有一个局部变量expensiveTransaction用于存放Transaction类型对象，他支持实例方法getValue，那么你就可以些expensive-Transaction:;getValue。)</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/java8_02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java8_01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: lambda 表达式 对应的class<br>date: 2020-02-06 22:00:00</p>
+<p>tags:</p>
+<ul>
+<li>java8 in action</li>
+<li>java8</li>
+</ul>
+<h3 id="lambda-表达式-对应的class-是什么"><a href="#lambda-表达式-对应的class-是什么" class="headerlink" title="lambda 表达式 对应的class 是什么"></a>lambda 表达式 对应的class 是什么</h3><p>结论：<br>1、lambda 表达式对应的class对象是lambda 的代理<br>2、lambda 表达式的superClass 是 Object<br>3、lambda 表达式的classloader 是 appClassLoader<br>4、lambda 表达式在用法上和匿名内部类很相似，但是对应的class不同<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/06/java8_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-design-pattern-factory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -623,186 +734,6 @@
 
 
   
-    <article id="post-effective-in-java3-item1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/20/effective-in-java3-item1/">item1:Consider static factory methods instead of constructors</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/20/effective-in-java3-item1/" class="archive-article-date">
-	<time datetime="2019-01-20T10:00:00.000Z" itemprop="datePublished">2019-01-20</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1、Advantages"><a href="#1、Advantages" class="headerlink" title="1、Advantages"></a>1、Advantages</h4><ul>
-<li>静态工厂方法不像构造器，他们有名字 <ul>
-<li>程序员都知道提供两个构造方法有限制，参数列表必须在顺序方面不同的,当使用构造方法的时候就不会出现这个问题。</li>
-</ul>
-</li>
-<li>不会像构造方法一样，每次执行都创建一个新对象</li>
-<li>静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象</li>
-<li>作为输⼊入参数的函数，返回对象所属的类会随着调⽤用的不同⽽而不同。</li>
-<li><ul>
-<li>例如<code>enumSet</code>，当参数为64个或者更少的时候，调用静态方法返回<code>RegularEnumSet</code>实例，当参数为65或者更多的时候，调用静态方法返回<code>JumboEnumSet</code> 实例</li>
-</ul>
-</li>
-<li>在使⽤包含了了⽅法的类时，返回对象所属的类不必事先存在。</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/20/effective-in-java3-item1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-spring-boot-config" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/13/spring-boot-config/">spring boot 配置文件</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/13/spring-boot-config/" class="archive-article-date">
-	<time datetime="2019-01-13T09:30:00.000Z" itemprop="datePublished">2019-01-13</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1、多环境配置"><a href="#1、多环境配置" class="headerlink" title="1、多环境配置"></a>1、多环境配置</h4><p>在 Spring Boot中，多环境配置的文件名需要满足 <code>application-{profile}.properties</code>的格式， 其中{profile}对应你的环境标识， 如下所示。 </p>
-<ul>
-<li><p><code>application-dev.properties</code>: 开发环境。 </p>
-</li>
-<li><p><code>application-test.properties</code>: 测试环境。 </p>
-</li>
-<li><p><code>application-prod.properties</code>: 生产环境。 </p>
-</li>
-</ul>
-<p>至于具体哪个配置文件会被加载， 需要在 <code>application.properties</code> 文件中通过 spring.profiles.active 属性来设置，其 值 对应配置文件中的{profile}值。 如 spring.profiles.active= test就会加载 <code>application-test.properties</code>配置 文件内容，当在<code>application-{profile}.properties</code>和<code>application.properties</code> 配置了相同的配置，会优先加载<code>application-{profile}.properties</code>。 </p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring boot</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring cloud 微服务实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/13/spring-boot-config/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -817,7 +748,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 wangqd
+    		&copy; 2020 wangqd
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
