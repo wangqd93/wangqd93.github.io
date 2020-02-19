@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: java8 | wangqd的博客</title>
+  <title>自定义Collector | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="沉默无言，戒备心极强。">
-<meta name="keywords" content="后端,编程,代码,开源,Developer,Programmer,Coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangqd的博客">
-<meta property="og:url" content="http://yoursite.com/tags/java8/index.html">
+  <meta name="description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector提供接口的定义public interface Collector&amp;lt;, A, R&amp;gt;,有三个泛型T、A、R`  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
+<meta name="keywords" content="java8,java8 in action">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义Collector">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/java8_04/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="沉默无言，戒备心极强。">
+<meta property="og:description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector提供接口的定义public interface Collector&amp;lt;, A, R&amp;gt;,有三个泛型T、A、R`  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
+<meta property="og:updated_time" content="2020-02-19T03:57:52.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangqd的博客">
-<meta name="twitter:description" content="沉默无言，戒备心极强。">
+<meta name="twitter:title" content="自定义Collector">
+<meta name="twitter:description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector提供接口的定义public interface Collector&amp;lt;, A, R&amp;gt;,有三个泛型T、A、R`  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -135,39 +136,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-java8_04" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      自定义Collector
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/java8_04/" class="archive-article-date">
+
+        
+        <a href="/2020/02/19/java8_04/" class="archive-article-date">
 	<time datetime="2020-02-19T04:00:00.000Z" itemprop="datePublished">2020-02-19</time>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/java8_04/">自定义Collector</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Collector-接口"><a href="#Collector-接口" class="headerlink" title="Collector 接口"></a>Collector 接口</h2><p><code>Collectors</code>类提供了很多工具方法，我们也可以自己实现<code>Collector</code>接口<code>自定义Collector</code>.</p>
+<h4 id="Collector-定义"><a href="#Collector-定义" class="headerlink" title="Collector 定义"></a>Collector 定义</h4><p>Collector<code>提供接口的定义</code>public interface Collector&lt;, A, R&gt;<code>,有三个泛型</code>T<code>、</code>A<code>、</code>R`</p>
+<ul>
+<li><code>T</code>:元素类型</li>
+<li><code>A</code>:归约运算的可变累积类型</li>
+<li><code>R</code>:结果类型</li>
+</ul>
+<a id="more"></a>
+<h4 id="Collector-抽象方法"><a href="#Collector-抽象方法" class="headerlink" title="Collector 抽象方法"></a>Collector 抽象方法</h4><p><code>Collector</code>包含5个抽象方法<code>supplier()</code>、<code>accumulator()</code>、<code>combiner()</code>、<code>finisher()</code>、<code>characteristics()</code></p>
+<ul>
+<li><code>supplier()</code>：建立新的结果容器</li>
+<li><code>accumulator()</code>:将元素添加到结果容器</li>
+<li><code>combiner()</code>:并行处理</li>
+<li><code>finisher()</code>:对结果容器应用最终转换</li>
+<li><code>characteristics()</code>:表明这个Collector的特点，有三个枚举值<ul>
+<li>CONCURRENT：是否可以并发</li>
+<li>UNORDERED：是否允许无序</li>
+<li>IDENTITY_FINISH：是否执行<code>`finisher()</code>对结果容器进行转换，如果存在该枚举则，会直接将泛型<code>A</code>强制转为泛型<code>R</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Collector-执行逻辑"><a href="#Collector-执行逻辑" class="headerlink" title="Collector 执行逻辑"></a>Collector 执行逻辑</h4><p><code>Collector</code> 方法执行的逻辑</p>
+<ul>
+<li>创建初始化容器 <code>A accumulator = colelctor.supplier().get()</code></li>
+<li>将元素放入到初始化的容器当中<code>collector.accumulator().accept(accmulator,next)</code></li>
+<li>判断是否有下一个元素，如果存在则 T next = 取流中的下一个元素</li>
+<li>转换结果<code>R result = collector.finisher().apply(accumulator())</code></li>
+<li>返回结果<code>return result</code></li>
+</ul>
+<h4 id="combiner-方法"><a href="#combiner-方法" class="headerlink" title="combiner 方法"></a><code>combiner</code> 方法</h4><p><code>combiner</code>方法会返回一个供归约操作的函数，它定义了对流的各个子部分进行并行处理时，各个子部分归约所得的累加器要如何合并。</p>
+<p>该方法会用到<code>java7</code>中引入的<code>fork/join</code>框架和<code>spliterator</code>抽象</p>
+<ul>
+<li><p>原始流会以递归方式拆分为子流，直到定义流是否需要进一步拆分的一个条件</p>
+</li>
+<li><p>现在，所有的子流都可以并行处理</p>
+</li>
+<li><p>最后，使用收集器<code>combiner()</code>方法返回的函数，将所有部分结果都两两合并。这时会把原始流每次拆分时得到的子流对应的结果合并起来</p>
+</li>
+</ul>
+<h4 id="自定义实现-Collector"><a href="#自定义实现-Collector" class="headerlink" title="自定义实现 Collector"></a>自定义实现 <code>Collector</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bycsmys.character6;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bycsmys.model.User;</span><br><span class="line"><span class="keyword">import</span> com.bycsmys.util.ModelUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.function.BiConsumer;</span><br><span class="line"><span class="keyword">import</span> java.util.function.BinaryOperator;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Function;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Supplier;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collector;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> wangqd</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@DATE</span> 2020-02-18</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectorTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; users = ModelUtil.initUser();</span><br><span class="line">        users.parallelStream().collect(<span class="keyword">new</span> Test&lt;User&gt;());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Collector&lt;T, A, R&gt;</span></span><br><span class="line"><span class="comment">     *  T: 元素类型</span></span><br><span class="line"><span class="comment">     *  A: 归约运算的可变累积类型</span></span><br><span class="line"><span class="comment">     *  R: 结果类型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Collector</span>&lt;<span class="title">T</span>, <span class="title">List</span>&lt;<span class="title">T</span>&gt;, <span class="title">List</span>&lt;<span class="title">T</span>&gt;&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 建立新的结果容器</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Supplier&lt;List&lt;T&gt;&gt; supplier() &#123;</span><br><span class="line">            System.out.println(<span class="string">"Supplier"</span>);</span><br><span class="line">            <span class="keyword">return</span> ArrayList::<span class="keyword">new</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 将元素添加到结果容器</span></span><br><span class="line"><span class="comment">         * 返回执行归约操作的函数。当遍历到流中第n个元素时，这个函数执行时，</span></span><br><span class="line"><span class="comment">         * 会有两个参数：保存归约结果的累加器（以收集了流中的前n-1个项目），还有第n个元素本身</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> BiConsumer&lt;List&lt;T&gt;, T&gt; accumulator() &#123;</span><br><span class="line">            System.out.println(<span class="string">"accumulator"</span>);</span><br><span class="line">            <span class="keyword">return</span> List::add;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> BinaryOperator&lt;List&lt;T&gt;&gt; combiner() &#123;</span><br><span class="line">            System.out.println(<span class="string">"combiner"</span>);</span><br><span class="line">            <span class="keyword">return</span> (list1,list2) -&gt;&#123;</span><br><span class="line">                list1.addAll(list2);</span><br><span class="line">                <span class="keyword">return</span> list1;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 对结果容器应用最终转换</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Function&lt;List&lt;T&gt;, List&lt;T&gt;&gt; finisher() &#123;</span><br><span class="line">            System.out.println(<span class="string">"finisher"</span>);</span><br><span class="line">            <span class="keyword">return</span> Function.identity();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Set&lt;Characteristics&gt; <span class="title">characteristics</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> Collections.unmodifiableSet(EnumSet.of(Characteristics.CONCURRENT, Characteristics.IDENTITY_FINISH));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -183,154 +222,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/19/java8_04/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/java8_03/" class="archive-article-date">
-	<time datetime="2020-02-19T03:00:00.000Z" itemprop="datePublished">2020-02-19</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/19/java8_03/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Collectors 常用方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/java8_03/">Collectors 常用方法</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8 in action</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/java8_02/" class="archive-article-date">
-	<time datetime="2020-02-06T14:00:00.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/java8_02/">lambda 表达式 方法引用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8 in action</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/java8_01/" class="archive-article-date">
-	<time datetime="2020-02-06T14:00:00.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/java8_01/">lambda 表达式 对应的class 是什么</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8 in action</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -353,9 +344,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -137,6 +137,176 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-effective-in-java3-item2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/effective-in-java3-item2/">Item 2:Consider a builder when faced with many constructor parameters</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/23/effective-in-java3-item2/" class="archive-article-date">
+	<time datetime="2019-01-23T12:00:00.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、传统方式"><a href="#1、传统方式" class="headerlink" title="1、传统方式"></a>1、传统方式</h4><ul>
+<li>静态工厂和构造方法都有一个限制：他们不能很好的适配大量可选参数。</li>
+<li>程序员一般用重叠构造器方式解决，但是并不好</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Effective in java 3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/23/effective-in-java3-item2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mq" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/mq/">常见mq</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/20/mq/" class="archive-article-date">
+	<time datetime="2019-01-20T13:10:00.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考文章：<a href="https://mp.weixin.qq.com/s/tiN6Z_VjTKZ5voFu4TFElg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/tiN6Z_VjTKZ5voFu4TFElg</a></p>
+<h4 id="1、ActiveMQ"><a href="#1、ActiveMQ" class="headerlink" title="1、ActiveMQ"></a>1、ActiveMQ</h4><ul>
+<li><p>ActiveMQ是老牌的消息中间件，国内很多公司过去运用的还是非常广泛的，功能很强大。但是问题在于没法确认ActiveMQ可以支撑互联网公司的高并发、高负载以及高吞吐的复杂场景，在国内互联网公司落地较少。而且使用较多的是一些传统企业，用ActiveMQ做异步调用和系统解耦。</p>
+</li>
+<li><p>不会像构造方法一样，每次执行都创建一个新对象</p>
+</li>
+<li><p>静态工厂方法的第三个优点是，与构造函数不同，它们可以返回其返回类型的任何子类型的对象</p>
+</li>
+<li>类的返回对象可以根据调用函数的输入参数而不同<ul>
+<li>例如enumSet，当参数为64个或者更少的时候，调用静态方法返回RegularEnumSet实例，当参数为65或者更多的时候，调用静态方法返回JumboEnumSet 实例</li>
+</ul>
+</li>
+<li>类的返回对象可以不存在当类的方法被重写。</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/20/mq/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-effective-in-java3-item1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -628,162 +798,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/05/27/http-statuscode/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tcp-protocol" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/12/tcp-protocol/">tcp协议</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/12/tcp-protocol/" class="archive-article-date">
-	<time datetime="2018-05-12T07:28:49.000Z" itemprop="datePublished">2018-05-12</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、tcp特点"><a href="#1、tcp特点" class="headerlink" title="1、tcp特点"></a>1、tcp特点</h3><p>tcp是面向连接的、可靠的流协议。<br>tcp为提供可靠性传输，实行“顺序控制”或“重发控制”机制。此外还具备“流控制（流量控制）”，“拥塞控制”、提高网络利用率等众多功能。</p>
-<p>在tcp中，当发送端的数据到达接收主机时，接收端主机会返回一个已收到消息通知。这个消息叫做确认应答（ack）</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tcp/ip</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/12/tcp-protocol/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ip-related-tech" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/02/ip-related-tech/">ip协议相关技术</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/02/ip-related-tech/" class="archive-article-date">
-	<time datetime="2018-05-02T10:26:58.000Z" itemprop="datePublished">2018-05-02</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-、DNS（Domain-Name-System）"><a href="#1-、DNS（Domain-Name-System）" class="headerlink" title="1 、DNS（Domain Name System）"></a>1 、DNS（Domain Name System）</h3><p>DNS（Domain Name System）：通过域名寻找ip<br>常用dns:8.8.8.8 或 114.114.114.114</p>
-<p>DNS在进行区域传输的时候使用TCP协议，其它时候则使用UDP协议；通俗地讲，就是DNS服务器之间传输时使用TCP，而客户端与DNS服务器之间传输时用的是UDP</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tcp/ip</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/02/ip-related-tech/">展开全文 >></a>
         </p>
       
 

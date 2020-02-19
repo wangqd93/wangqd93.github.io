@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: java8 | wangqd的博客</title>
+  <title>Collectors 常用方法 | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="沉默无言，戒备心极强。">
-<meta name="keywords" content="后端,编程,代码,开源,Developer,Programmer,Coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangqd的博客">
-<meta property="og:url" content="http://yoursite.com/tags/java8/index.html">
+  <meta name="description" content="Collectors 提供了常用的方法Collectors 提供了常用的方法，该类类似Collections工具类，常用的包括：  Collectors.toList() : Collectors.toSet()： Collectors.toCollection() Collectors.counting() Collectors.summingInt() Collectors.summarizi">
+<meta name="keywords" content="java8,java8 in action">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Collectors 常用方法">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/java8_03/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="沉默无言，戒备心极强。">
+<meta property="og:description" content="Collectors 提供了常用的方法Collectors 提供了常用的方法，该类类似Collections工具类，常用的包括：  Collectors.toList() : Collectors.toSet()： Collectors.toCollection() Collectors.counting() Collectors.summingInt() Collectors.summarizi">
+<meta property="og:updated_time" content="2020-02-19T04:00:59.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangqd的博客">
-<meta name="twitter:description" content="沉默无言，戒备心极强。">
+<meta name="twitter:title" content="Collectors 常用方法">
+<meta name="twitter:description" content="Collectors 提供了常用的方法Collectors 提供了常用的方法，该类类似Collections工具类，常用的包括：  Collectors.toList() : Collectors.toSet()： Collectors.toCollection() Collectors.counting() Collectors.summingInt() Collectors.summarizi">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -135,84 +136,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java8_03" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/java8_04/" class="archive-article-date">
-	<time datetime="2020-02-19T04:00:00.000Z" itemprop="datePublished">2020-02-19</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/java8_04/">自定义Collector</a>
+    <h1 class="article-title" itemprop="name">
+      Collectors 常用方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8 in action</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/java8_03/" class="archive-article-date">
+        
+        <a href="/2020/02/19/java8_03/" class="archive-article-date">
 	<time datetime="2020-02-19T03:00:00.000Z" itemprop="datePublished">2020-02-19</time>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/java8_03/">Collectors 常用方法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Collectors-提供了常用的方法"><a href="#Collectors-提供了常用的方法" class="headerlink" title="Collectors 提供了常用的方法"></a><code>Collectors</code> 提供了常用的方法</h4><p><code>Collectors</code> 提供了常用的方法，该类类似<code>Collections</code>工具类，常用的包括：</p>
+<ul>
+<li><code>Collectors.toList()</code> :</li>
+<li><code>Collectors.toSet()</code>：</li>
+<li><code>Collectors.toCollection()</code></li>
+<li><code>Collectors.counting()</code></li>
+<li><code>Collectors.summingInt()</code></li>
+<li><code>Collectors.summarizingInt()</code></li>
+<li><code>Collectors.averagingInt()</code></li>
+<li><code>Collectors.joining()</code></li>
+<li><code>Collectors.maxBy()</code></li>
+<li><code>Collectors.minBy()</code></li>
+<li><code>Collectors.reducing()</code></li>
+<li><code>Collectors.collectingAndThen()</code></li>
+<li><code>Collectors.groupingBy()</code></li>
+<li><code>Collectors.mapping()</code></li>
+</ul>
+<a id="more"></a>
+<h4 id="事例code"><a href="#事例code" class="headerlink" title="事例code"></a>事例code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bycsmys.character6;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bycsmys.model.User;</span><br><span class="line"><span class="keyword">import</span> com.bycsmys.util.ModelUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collector;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> wangqd</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@DATE</span> 2020-02-16</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectorsTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        List&lt;User&gt; users = ModelUtil.initUser();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Collectors.toList()</span></span><br><span class="line">        List&lt;User&gt; toListUsers = users.stream().collect(Collectors.toList());</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Collectors.toSet()</span></span><br><span class="line">        Set&lt;User&gt; toSetUsers = users.stream().collect(Collectors.toSet());</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Collectors.toCollection 可以执行转换结果的类型</span></span><br><span class="line">        Set&lt;User&gt; toCollectionUsers = users.stream().collect(Collectors.toCollection(TreeSet::<span class="keyword">new</span>));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Collectors.counting() 同 users.stream().count();</span></span><br><span class="line">        Long count = users.stream().collect(Collectors.counting());</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 年龄求和</span></span><br><span class="line">        Integer countAge = users.stream().collect(Collectors.summingInt(User::getAge));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Collectors.summarizingInt 统计信息 包括count sum min max average</span></span><br><span class="line">        IntSummaryStatistics intSummaryStatistics = users.stream().collect(Collectors.summarizingInt(User::getAge));</span><br><span class="line"></span><br><span class="line">        System.out.println(intSummaryStatistics.getCount());</span><br><span class="line">        System.out.println(intSummaryStatistics.getSum());</span><br><span class="line">        System.out.println(intSummaryStatistics.getMin());</span><br><span class="line">        System.out.println(intSummaryStatistics.getMax());</span><br><span class="line">        System.out.println(intSummaryStatistics.getAverage());</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Collectors.averagingInt 平均值</span></span><br><span class="line">        Double avgAge = users.stream().collect(Collectors.averagingInt(User::getAge));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Collectors.joining 字符串拼接</span></span><br><span class="line">        String userNameJoin = users.stream().map(User::getUserName).collect(Collectors.joining(<span class="string">";"</span>));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Collectors.maxBy 获取最大值</span></span><br><span class="line">        Optional&lt;User&gt; maxOptional = users.stream().collect(Collectors.maxBy(Comparator.comparing(User::getAge).thenComparing(User::getUserName)));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Collectors.minBy 获取最小值</span></span><br><span class="line">        Optional&lt;User&gt; minOptional = users.stream().collect(Collectors.minBy(Comparator.comparing(User::getAge).thenComparing(User::getUserName)));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Collectors.reducing reduce 操作</span></span><br><span class="line">        Integer ageSum = users.stream().collect(Collectors.reducing(<span class="number">0</span>, User::getAge, Integer::sum));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Collectors.collectingAndThen 操作</span></span><br><span class="line">        <span class="keyword">boolean</span> isEmpty = users.stream().collect(Collectors.collectingAndThen(Collectors.toList(), List::isEmpty));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Collectors.groupingBy 根据age 分组</span></span><br><span class="line">        Map&lt;Integer, List&lt;User&gt;&gt; ageUserMap = users.stream().collect(Collectors.groupingBy(User::getAge));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Collectors.partitioningBy 根据age 分区</span></span><br><span class="line">        Map&lt;Boolean, List&lt;User&gt;&gt; agePartition = users.stream().collect(Collectors.partitioningBy(user -&gt; user.getAge() &gt; <span class="number">30</span>));</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; userNameList = users.stream().collect(Collectors.mapping(User::getUserName, Collectors.toList()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -228,109 +201,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/19/java8_03/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/java8_02/" class="archive-article-date">
-	<time datetime="2020-02-06T14:00:00.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
 
+  
+<nav id="article-nav">
+  
+    <a href="/2020/02/19/java8_04/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          自定义Collector
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/06/java8_02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">lambda 表达式 方法引用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/java8_02/">lambda 表达式 方法引用</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8 in action</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/java8_01/" class="archive-article-date">
-	<time datetime="2020-02-06T14:00:00.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/java8_01/">lambda 表达式 对应的class 是什么</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8 in action</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -353,9 +332,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
