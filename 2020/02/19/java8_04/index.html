@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>自定义Collector | wangqd的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector提供接口的定义public interface Collector&amp;lt;, A, R&amp;gt;,有三个泛型T、A、R`  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
+  <meta name="description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector 提供接口的定义public interface Collector&amp;lt;T, A, R&amp;gt;,有三个泛型T、A、R  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
 <meta name="keywords" content="java8,java8 in action">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义Collector">
 <meta property="og:url" content="http://yoursite.com/2020/02/19/java8_04/index.html">
 <meta property="og:site_name" content="wangqd的博客">
-<meta property="og:description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector提供接口的定义public interface Collector&amp;lt;, A, R&amp;gt;,有三个泛型T、A、R`  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
-<meta property="og:updated_time" content="2020-02-19T03:57:52.682Z">
+<meta property="og:description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector 提供接口的定义public interface Collector&amp;lt;T, A, R&amp;gt;,有三个泛型T、A、R  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
+<meta property="og:updated_time" content="2020-02-19T06:11:44.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Collector">
-<meta name="twitter:description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector提供接口的定义public interface Collector&amp;lt;, A, R&amp;gt;,有三个泛型T、A、R`  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
+<meta name="twitter:description" content="Collector 接口Collectors类提供了很多工具方法，我们也可以自己实现Collector接口自定义Collector. Collector 定义Collector 提供接口的定义public interface Collector&amp;lt;T, A, R&amp;gt;,有三个泛型T、A、R  T:元素类型 A:归约运算的可变累积类型 R:结果类型">
   
     <link rel="alternative" href="/atom.xml" title="wangqd的博客" type="application/atom+xml">
   
@@ -160,7 +160,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Collector-接口"><a href="#Collector-接口" class="headerlink" title="Collector 接口"></a>Collector 接口</h2><p><code>Collectors</code>类提供了很多工具方法，我们也可以自己实现<code>Collector</code>接口<code>自定义Collector</code>.</p>
-<h4 id="Collector-定义"><a href="#Collector-定义" class="headerlink" title="Collector 定义"></a>Collector 定义</h4><p>Collector<code>提供接口的定义</code>public interface Collector&lt;, A, R&gt;<code>,有三个泛型</code>T<code>、</code>A<code>、</code>R`</p>
+<h4 id="Collector-定义"><a href="#Collector-定义" class="headerlink" title="Collector 定义"></a>Collector 定义</h4><p><code>Collector</code> 提供接口的定义<code>public interface Collector&lt;T, A, R&gt;</code>,有三个泛型<code>T</code>、<code>A</code>、<code>R</code></p>
 <ul>
 <li><code>T</code>:元素类型</li>
 <li><code>A</code>:归约运算的可变累积类型</li>
